@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+@model MVCSocialAuth.Models.LoginModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm())
+        {
+            <div>
+                <label>Name:</label>
+                @Html.TextBoxFor(x => x.Name)
+            </div>
+            <div>
+                <label>Password:</label>
+                @Html.PasswordFor(x => x.Password)
+            </div>
+            <input type="submit" name="name" value="Giriş" />
+        }
+    </div>
+    <h1>Social Auth</h1>
+    <div>
+        @using (Html.BeginForm("ExternalLogin", "Account"))
+        {
+            <button type="submit" id="btnLinkGoogle" name="provider" value="Google"><i class="fa fa-google-plus"></i> Google</button>
+        }
+    </div>
+</body>
+</html>
